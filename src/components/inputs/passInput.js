@@ -3,28 +3,32 @@ import {SafeAreaView, TextInput, StyleSheet, View} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import screenDetails from '../../constants/screenDetails';
+import Colors from '../../constants/color';
 
 export default function PassInput(props) {
   const Screen = screenDetails();
-  const [visibility, setvisibility] = useState(false);
+  const [visibility, setVisibility] = useState(false);
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
-      elevation: 10,
+      elevation: 15,
       padding: 10,
       margin: 20,
       borderRadius: 90,
-      backgroundColor: 'white',
+      backgroundColor: Colors.white,
+      shadowColor: Colors.shadeBlue,
+      shadowOpacity: 0.4,
+      shadowRadius: 5,
     },
     icon: {
       marginHorizontal: 5,
       alignSelf: 'center',
       justifyContent: 'center',
-      color: 'black',
+      color: Colors.black,
     },
     insideTextInput: {
       flex: 1,
-      color: 'black',
+      color: Colors.black,
     },
   });
   return (
@@ -42,7 +46,7 @@ export default function PassInput(props) {
         style={styles.icon}
         name={!visibility ? 'eye-slash' : 'eye'}
         size={20}
-        onPress={() => setvisibility(!visibility)}
+        onPress={() => setVisibility(!visibility)}
       />
       {/* {this.state.errorEmail === true ? (
         <Icon

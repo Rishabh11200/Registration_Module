@@ -10,3 +10,14 @@ export function isEmailCheck(email) {
   }
   return emailVerified;
 }
+
+export function isPassCheck(pass) {
+  let passVerified = true;
+  let regEx = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+  if (pass == '') {
+    passVerified = false;
+  } else if (!regEx.test(pass)) {
+    passVerified = false;
+  }
+  return passVerified;
+}

@@ -1,28 +1,34 @@
 import React, {useState} from 'react';
 import {SafeAreaView, TextInput, StyleSheet, View} from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import screenDetails from '../../constants/screenDetails';
+import Colors from '../../constants/color';
+import {isEmailCheck} from '../../constants/validations';
 
 export default function EmailInputText(props) {
   const Screen = screenDetails();
   const styles = StyleSheet.create({
     container: {
       flexDirection: 'row',
-      elevation: 10,
+      elevation: 15,
       padding: 10,
       margin: 20,
       borderRadius: 90,
-      backgroundColor: 'white',
+      backgroundColor: Colors.white,
+      shadowColor: Colors.shadeBlue,
+      shadowOpacity: 0.4,
+      shadowRadius: 5,
     },
     icon: {
       marginHorizontal: 5,
       alignSelf: 'center',
       justifyContent: 'center',
-      color: 'black',
+      color: Colors.black,
     },
     insideTextInput: {
       flex: 1,
-      color: 'black',
+      color: Colors.black,
     },
   });
   return (
@@ -36,19 +42,6 @@ export default function EmailInputText(props) {
         onChangeText={text => props.func(text)}
         defaultValue={props.value}
       />
-      {/* {this.state.errorEmail === true ? (
-        <Icon
-          style={[styles.icon, {color: 'red'}]}
-          name="exclamation-circle"
-          size={20}
-        />
-      ) : this.state.blankCheck === true ? (
-        <Icon
-          style={[styles.icon, {color: 'red'}]}
-          name="exclamation-circle"
-          size={20}
-        />
-      ) : null} */}
     </View>
   );
 }
