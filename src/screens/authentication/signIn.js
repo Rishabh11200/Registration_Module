@@ -7,6 +7,7 @@ import {
   View,
   Alert,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
 import screenDetails from '../../constants/screenDetails';
 import Colors from '../../constants/color';
 import EmailInputText from '../../components/inputs/emailInput';
@@ -15,7 +16,7 @@ import {isEmailCheck, isPassCheck} from '../../constants/validations';
 import ButtonField from '../../components/button/SubmitButton';
 import LoadingModal from '../../components/LoadingModal';
 
-const signIn = () => {
+const signIn = ({navigation}) => {
   const [emailText, setemailText] = useState('');
   const [passText, setpassText] = useState('');
   const [onLoading, setonLoading] = useState(false);
@@ -93,7 +94,11 @@ const signIn = () => {
         <View style={styles.separator}></View>
         <View style={styles.lastView}>
           <Text style={styles.text1(screen)}>Didn't have an Acoount?</Text>
-          <Text style={styles.text2(screen)}>Sign up now.</Text>
+          <Text
+            style={styles.text2(screen)}
+            onPress={() => navigation.navigate('signUp')}>
+            Sign up now.
+          </Text>
         </View>
       </ScrollView>
     </SafeAreaView>
