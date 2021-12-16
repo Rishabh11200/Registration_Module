@@ -19,5 +19,6 @@ export function isPassCheck(pass) {
   } else if (!regEx.test(pass)) {
     passVerified = false;
   }
+
   return passVerified;
 }

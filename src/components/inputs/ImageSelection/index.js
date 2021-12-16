@@ -10,7 +10,8 @@ import {
   Modal,
   Image,
 } from 'react-native';
-import Colors from '../../constants/color';
+import Colors from '../../../constants/color';
+import styles from './styles';
 
 export default function ImageSelection(props) {
   const [ResourceUri, setResourceUri] = useState('');
@@ -34,6 +35,7 @@ export default function ImageSelection(props) {
         setResourceUri(response.assets[0]['uri']);
       }
     });
+    setisModalVisible(false);
   };
   const fromCamera = () => {
     const options = {
@@ -56,15 +58,18 @@ export default function ImageSelection(props) {
         setResourceUri(response.assets[0]['uri']);
       }
     });
+    setisModalVisible(false);
   };
-
+  function onChange() {
+    setisModalVisible(true);
+  }
   return (
     <View style={styles.container}>
       <Modal
         animationType="slide"
         transparent={true}
         visible={isModalVisible}
-        onRequestClose={() => {   }}>
+        onRequestClose={() => {}}>
         <View style={styles.view}>
           <View style={styles.centered}>
             <TouchableOpacity
@@ -87,73 +92,16 @@ export default function ImageSelection(props) {
       </Modal>
       <View>
         <TouchableOpacity
-          onPress={() => {
-            setisModalVisible(true);
-          }}
+          activeOpacity={0.1}
+          onPress={() => onChange()}
           style={styles.imageView}>
           {ResourceUri != '' ? (
             <Image source={{uri: ResourceUri}} style={styles.imageView} />
           ) : (
-            <Text style={styles.buttonText}>Select File</Text>
+            <Text style={styles.buttonText}>Profile pic</Text>
           )}
         </TouchableOpacity>
       </View>
     </View>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 30,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.white,
-    marginTop: 10,
-  },
-  imageView: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: 20,
-    borderRadius: 100,
-    margin: 20,
-    height: 200,
-    width: 200,
-    borderColor: 'black',
-  },
-  view: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  centered: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    elevation: 25,
-    padding: '10%',
-    margin: 20,
-    borderRadius: 45,
-    backgroundColor: Colors.white,
-    shadowColor: Colors.babyBlue,
-    shadowOpacity: 0.4,
-    shadowRadius: 5,
-  },
-  text: {
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: '800',
-    color: Colors.black,
-  },
-  button: {
-    marginTop: 30,
-    padding: 10,
-    marginHorizontal: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: Colors.shadeBlue,
-    borderRadius: 90,
-  },
-  closeText: {
-    marginTop: 10,
-    color: Colors.black,
-  },
-});

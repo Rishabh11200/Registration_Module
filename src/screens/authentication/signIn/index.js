@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -7,14 +7,14 @@ import {
   View,
   Alert,
 } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import screenDetails from '../../constants/screenDetails';
-import Colors from '../../constants/color';
-import EmailInputText from '../../components/inputs/emailInput';
-import PassInput from '../../components/inputs/passInput';
-import {isEmailCheck, isPassCheck} from '../../constants/validations';
-import ButtonField from '../../components/button/SubmitButton';
-import LoadingModal from '../../components/LoadingModal';
+import screenDetails from '../../../constants/screenDetails';
+import Colors from '../../../constants/color';
+import {isEmailCheck, isPassCheck} from '../../../constants/validations';
+import EmailInputText from '../../../components/inputs/emailInput/';
+import PassInput from '../../../components/inputs/passInput/';
+import ButtonField from '../../../components/button/SubmitButton/';
+import LoadingModal from '../../../components/LoadingModal';
+import styles from './styles';
 
 const signIn = ({navigation}) => {
   const [emailText, setemailText] = useState('');
@@ -24,8 +24,22 @@ const signIn = ({navigation}) => {
   const [EmailCheck, setEmailCheck] = useState(false);
   const [PassCheck, setPassCheck] = useState(false);
   const screen = screenDetails();
+  useEffect(() => {
+    if (passText !== '') {
+      if (isPassCheck(passText)) {
+        setPassCheck(false);
+      } else {
+        setPassCheck(true);
+      }
+    }
+  }, [passText]);
   function onTypeEmail(text) {
     setemailText(text);
+    if (isEmailCheck(emailText)) {
+      setEmailCheck(false);
+    } else {
+      setEmailCheck(true);
+    }
   }
   function onTypePass(text) {
     setpassText(text);
@@ -34,7 +48,7 @@ const signIn = ({navigation}) => {
     setonLoading(state);
   }
   function onSignIn() {
-    if (emailText != null && passText != null) {
+    if (emailText != '' && passText != '') {
       if (isEmailCheck(emailText)) {
         setEmailCheck(false);
         if (isPassCheck(passText)) {
@@ -42,7 +56,9 @@ const signIn = ({navigation}) => {
           onLoadingSubmit(true);
           setTimeout(() => {
             onLoadingSubmit(false);
-            Alert.alert('Successfuly sign in');
+            Alert.alert(`Signed in`, 'Voila! continue to your home.', [
+              {text: 'OK', onPress: () => navigation.navigate('Home')},
+            ]);
           }, 3000);
         } else {
           setPassCheck(true);
@@ -93,11 +109,11 @@ const signIn = ({navigation}) => {
         </View>
         <View style={styles.separator}></View>
         <View style={styles.lastView}>
-          <Text style={styles.text1(screen)}>Didn't have an Acoount?</Text>
+          <Text style={styles.text1(screen)}>Didn't have an Account?</Text>
           <Text
             style={styles.text2(screen)}
             onPress={() => navigation.navigate('signUp')}>
-            Sign up now.
+            Create a new one
           </Text>
         </View>
       </ScrollView>
@@ -105,52 +121,4 @@ const signIn = ({navigation}) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: screen => ({
-    flex: 1,
-    flexDirection: screen.up ? 'column' : 'row',
-    justifyContent: 'center',
-    padding: screen.up ? screen.width * 0.05 : screen.width * 0.05,
-    backgroundColor: Colors.white,
-  }),
-  headingText: screen => ({
-    fontSize: screen.up ? screen.fps + 5 : screen.fls + 5,
-    color: Colors.black,
-    padding: '3%',
-    fontWeight: '800',
-  }),
-  separator: {
-    borderBottomColor: Colors.black,
-    borderBottomWidth: 1,
-    marginTop: 10,
-    marginHorizontal: 10,
-  },
-  forgot: {
-    textAlign: 'right',
-    fontWeight: '700',
-    color: Colors.shadeBlue,
-  },
-  lastView: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: '30%',
-  },
-  text1: screen => ({
-    fontWeight: 'bold',
-    fontSize: screen.up ? screen.fps + 2 : screen.fls + 2,
-    color: Colors.black,
-  }),
-  text2: screen => ({
-    fontWeight: 'bold',
-    fontSize: screen.up ? screen.fps + 2 : screen.fls + 2,
-    color: Colors.darkBlue,
-  }),
-  error: {
-    fontSize: 15,
-    textAlign: 'justify',
-    fontWeight: '700',
-    color: Colors.red,
-  },
-});
 export default signIn;
