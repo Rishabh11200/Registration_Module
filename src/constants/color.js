@@ -7,5 +7,6 @@ const Colors = {
   darkBlue: '#0b5ef4',
   shadeBlue: '#6666ff',
   babyBlue: '#89CFF0',
+  vividCyan: '#03DAC6',
 };
 export default Colors;

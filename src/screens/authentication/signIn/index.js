@@ -105,7 +105,11 @@ const signIn = ({navigation}) => {
           func={onSignIn}
         />
         <View style={{flex: 1}}>
-          <Text style={styles.forgot}>Forgot Password?</Text>
+          <Text
+            style={styles.forgot}
+            onPress={() => navigation.navigate('forgot1')}>
+            Forgot Password?
+          </Text>
         </View>
         <View style={styles.separator}></View>
         <View style={styles.lastView}>

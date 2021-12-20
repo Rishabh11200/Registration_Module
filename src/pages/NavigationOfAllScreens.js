@@ -8,6 +8,7 @@ const Stack = createNativeStackNavigator();
 import signIn from '../screens/authentication/signIn/';
 import signUp from '../screens/authentication/signUp/';
 import forgot1 from '../screens/authentication/forgot/forgot1';
+import forgot2 from '../screens/authentication/forgot/forgot2';
 import Home from '../screens/otherScreens/Home';
 
 const NavigationOfAllScreens = () => {
@@ -22,6 +23,16 @@ const NavigationOfAllScreens = () => {
         <Stack.Screen
           name="signUp"
           component={signUp}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="forgot1"
+          component={forgot1}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="forgot2"
+          component={forgot2}
           options={{headerShown: false}}
         />
         <Stack.Screen name="Home" component={Home} />

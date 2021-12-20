@@ -145,31 +145,31 @@ const signUp = ({navigation}) => {
               </Text>
             </View>
           ) : null}
-          <PassInput name="Password" value={passText} func={onTypePass} />
-          {PassCheck === true ? (
-            <View style={{flex: 1, marginHorizontal: 30}}>
-              <Text style={styles.error}>
-                {'\u2B24 Please enter Password with proper format.'}
-              </Text>
-              <Text style={styles.error}>
-                {
-                  '-Must contain 1 captial character, 1 digit and minimum 8 characters.'
-                }
-              </Text>
-            </View>
-          ) : null}
-          <PassInput
-            name="Confirm Password"
-            value={cPassText}
-            func={onTypecPass}
-          />
-          {cPassCheck === true ? (
-            <View style={{flex: 1, marginHorizontal: 30}}>
-              <Text style={styles.error}>
-                {'\u2B24 Password and Confirm Password are not matching.'}
-              </Text>
-            </View>
-          ) : null}
+            <PassInput name="Password" value={passText} func={onTypePass} />
+            {PassCheck === true ? (
+              <View style={{flex: 1, marginHorizontal: 30}}>
+                <Text style={styles.error}>
+                  {'\u2B24 Please enter Password with proper format.'}
+                </Text>
+                <Text style={styles.error}>
+                  {
+                    '-Must contain 1 captial character, 1 digit and minimum 8 characters.'
+                  }
+                </Text>
+              </View>
+            ) : null}
+            <PassInput
+              name="Confirm Password"
+              value={cPassText}
+              func={onTypecPass}
+            />
+            {cPassCheck === true ? (
+              <View style={{flex: 1, marginHorizontal: 30}}>
+                <Text style={styles.error}>
+                  {'\u2B24 Password and Confirm Password are not matching.'}
+                </Text>
+              </View>
+            ) : null}
           <CheckBoxView
             value={checkBox}
             func={onCheckBoxChange}

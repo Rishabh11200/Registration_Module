@@ -53,6 +53,7 @@ export default styles = StyleSheet.create({
   closeText: {
     marginTop: 10,
     color: Colors.black,
+    textDecorationLine: 'underline',
   },
   buttonText: {
     textAlign: 'center',
