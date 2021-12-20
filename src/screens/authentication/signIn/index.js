@@ -57,7 +57,10 @@ const signIn = ({navigation}) => {
           setTimeout(() => {
             onLoadingSubmit(false);
             Alert.alert(`Signed in`, 'Voila! continue to your home.', [
-              {text: 'OK', onPress: () => navigation.navigate('Home')},
+              {
+                text: 'OK',
+                onPress: () => navigation.navigate('AllAuthotisedPages'),
+              },
             ]);
           }, 3000);
         } else {

@@ -9,7 +9,7 @@ import signIn from '../screens/authentication/signIn/';
 import signUp from '../screens/authentication/signUp/';
 import forgot1 from '../screens/authentication/forgot/forgot1';
 import forgot2 from '../screens/authentication/forgot/forgot2';
-import Home from '../screens/otherScreens/Home';
+import bottomTabNavigation from './bottomTabNavigation';
 
 const NavigationOfAllScreens = () => {
   return (
@@ -35,7 +35,10 @@ const NavigationOfAllScreens = () => {
           component={forgot2}
           options={{headerShown: false}}
         />
-        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen
+          name="AllAuthotisedPages"
+          component={bottomTabNavigation}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -11,17 +11,17 @@ import screenDetails from '../../../constants/screenDetails';
 import Colors from '../../../constants/color';
 import styles from './styles';
 
-const Home = () => {
+const Settings = () => {
   const screen = screenDetails();
   return (
     <SafeAreaView style={styles.container(screen)}>
       <View style={styles.center}>
         <Text style={styles.text}>
-          Hey, further things will be added soon... Home
+          Hey, further things will be added soon... Settings
         </Text>
       </View>
     </SafeAreaView>
   );
 };
 
-export default Home;
+export default Settings;
