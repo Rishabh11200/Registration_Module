@@ -7,6 +7,7 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import Home from '../screens/otherScreens/Home';
 import Profile from '../screens/otherScreens/Profile';
 import Settings from '../screens/otherScreens/Settings';
+import Drawer from './drawer';
 
 const Tab = createMaterialBottomTabNavigator();
 const bottomTabNavigation = () => {
@@ -35,7 +36,7 @@ const bottomTabNavigation = () => {
       })}>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={Drawer}
         options={{tabBarColor: Colors.cyan}}
       />
       <Tab.Screen

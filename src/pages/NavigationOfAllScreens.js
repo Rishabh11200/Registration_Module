@@ -25,7 +25,7 @@ const NavigationOfAllScreens = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {isSignedIn ? (
+        {isSignedIn === 'true' ? (
           <>
             <Stack.Screen
               name="combinedPages"
