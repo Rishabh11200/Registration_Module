@@ -59,7 +59,7 @@ const signIn = ({navigation}) => {
             Alert.alert(`Signed in`, 'Voila! continue to your home.', [
               {
                 text: 'OK',
-                onPress: () => navigation.navigate('AllAuthotisedPages'),
+                onPress: () => navigation.navigate('combinedPages'),
               },
             ]);
           }, 3000);

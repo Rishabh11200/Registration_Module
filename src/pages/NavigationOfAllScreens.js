@@ -35,10 +35,7 @@ const NavigationOfAllScreens = () => {
           component={forgot2}
           options={{headerShown: false}}
         />
-        <Stack.Screen
-          name="AllAuthotisedPages"
-          component={bottomTabNavigation}
-        />
+        <Stack.Screen name="combinedPages" component={bottomTabNavigation} />
       </Stack.Navigator>
     </NavigationContainer>
   );
