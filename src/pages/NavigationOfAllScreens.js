@@ -15,7 +15,7 @@ const NavigationOfAllScreens = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen
+        {/* <Stack.Screen
           name="signIn"
           component={signIn}
           options={{headerShown: false}}
@@ -28,13 +28,13 @@ const NavigationOfAllScreens = () => {
         <Stack.Screen
           name="forgot1"
           component={forgot1}
-          options={{headerShown: false}}
+          options={{headerShown : false}}
         />
         <Stack.Screen
           name="forgot2"
           component={forgot2}
           options={{headerShown: false}}
-        />
+        /> */}
         <Stack.Screen name="combinedPages" component={bottomTabNavigation} />
       </Stack.Navigator>
     </NavigationContainer>
