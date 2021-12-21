@@ -12,6 +12,15 @@ const Tab = createMaterialBottomTabNavigator();
 const bottomTabNavigation = () => {
   return (
     <Tab.Navigator
+      shifting={true}
+      tabBar={{
+        flexDirection: 'row',
+        height: 50,
+        alignItems: 'center',
+        paddingHorizontal: 5,
+        borderTopLeftRadius: 40,
+        borderTopRightRadius: 40,
+      }}
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
@@ -21,23 +30,23 @@ const bottomTabNavigation = () => {
             iconName = focused ? 'ios-people' : 'ios-people-outline';
           else if (route.name === 'Settings')
             iconName = focused ? 'settings' : 'settings-outline';
-          return <Icon name={iconName} size={20} color={color} />;
+          return <Icon name={iconName} size={24} color={color} />;
         },
       })}>
       <Tab.Screen
         name="Home"
         component={Home}
-        options={{tabBarColor: 'blue'}}
+        options={{tabBarColor: Colors.cyan}}
       />
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{tabBarColor: 'black'}}
+        options={{tabBarColor: Colors.darkCyan}}
       />
       <Tab.Screen
         name="Settings"
         component={Settings}
-        options={{tabBarColor: 'green'}}
+        options={{tabBarColor: Colors.xCyan}}
       />
     </Tab.Navigator>
   );

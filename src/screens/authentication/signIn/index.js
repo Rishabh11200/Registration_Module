@@ -15,6 +15,7 @@ import PassInput from '../../../components/inputs/passInput/';
 import ButtonField from '../../../components/button/SubmitButton/';
 import LoadingModal from '../../../components/LoadingModal';
 import styles from './styles';
+import {set} from '../../../constants/dataBase/services';
 
 const signIn = ({navigation}) => {
   const [emailText, setemailText] = useState('');
@@ -47,13 +48,14 @@ const signIn = ({navigation}) => {
   function onLoadingSubmit(state) {
     setonLoading(state);
   }
-  function onSignIn() {
+  async function onSignIn() {
     if (emailText != '' && passText != '') {
       if (isEmailCheck(emailText)) {
         setEmailCheck(false);
         if (isPassCheck(passText)) {
           setPassCheck(false);
           onLoadingSubmit(true);
+          await set('isSignedIn', 'true');
           setTimeout(() => {
             onLoadingSubmit(false);
             Alert.alert(`Signed in`, 'Voila! continue to your home.', [

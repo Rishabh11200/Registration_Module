@@ -7,9 +7,8 @@ const Colors = {
   darkBlue: '#0B5EF4',
   shadeBlue: '#6666FF',
   babyBlue: '#89CFF0',
-  vividCyan: '#03DAC6',
-  neonGreen: '#97FE69',
-  paleGreen: '#E3F9B0',
+  darkCyan: '#46958A',
   cyan: '#6FB5AB',
+  xCyan: '#2A7D72',
 };
 export default Colors;
