@@ -14,6 +14,7 @@ const bottomTabNavigation = () => {
   return (
     <Tab.Navigator
       shifting={true}
+      initialRouteName="Home"
       tabBar={{
         flexDirection: 'row',
         height: 50,

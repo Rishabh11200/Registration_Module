@@ -55,13 +55,15 @@ const signIn = ({navigation}) => {
         if (isPassCheck(passText)) {
           setPassCheck(false);
           onLoadingSubmit(true);
-          await set('isSignedIn', 'true');
+          await set('isSignedIn', true);
+          let data = {email: emailText, pass: passText};
+          await set('authData', data);
           setTimeout(() => {
             onLoadingSubmit(false);
             Alert.alert(`Signed in`, 'Voila! continue to your home.', [
               {
                 text: 'OK',
-                onPress: () => navigation.navigate('combinedPages'),
+                onPress: () => navigation.navigate('all'),
               },
             ]);
           }, 3000);

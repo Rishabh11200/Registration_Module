@@ -20,6 +20,8 @@ target 'SignIn' do
 
   pod 'RNReanimated', :path => '../node_modules/react-native-reanimated'
 
+  pod 'RNGestureHandler', :path => '../node_modules/react-native-gesture-handler'
+
   target 'SignInTests' do
     inherit! :complete
     # Pods for testing

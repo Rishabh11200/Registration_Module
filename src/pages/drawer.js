@@ -6,6 +6,7 @@ import {
   Text,
   SafeAreaView,
 } from 'react-native';
+import {useNavigation} from '@react-navigation/native';
 import Colors from '../constants/color';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
@@ -14,7 +15,6 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {StackActions} from '@react-navigation/native';
 
 import Home from '../screens/otherScreens/Home';
 import Cart from '../screens/otherScreens/Cart';
@@ -28,16 +28,16 @@ export default function Drawer(props) {
       drawerContent={props => <CustomDrawer {...props} />}
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor: Colors.babyBlue,
-        drawerActiveTintColor: Colors.shadeBlue,
+        drawerActiveBackgroundColor: Colors.lGreen,
+        drawerActiveTintColor: Colors.black,
         drawerInactiveTintColor: Colors.black,
         drawerLabelStyle: {
-          //   marginLeft: -20,
           fontSize: 18,
+          marginLeft: -25,
         },
       }}>
       <drawer.Screen
-        name="Home"
+        name="MainHome"
         component={Home}
         options={{
           drawerIcon: ({color}) => <Icon name="home" color={color} size={24} />,
@@ -73,9 +73,9 @@ export default function Drawer(props) {
 }
 
 function CustomDrawer(props) {
-  async function onLogout() {
-    navigation.dispatch(StackActions.popToTop());
-    await set('isSignedIn', 'false');
+  const navigation = useNavigation();
+  function onLogout() {
+    navigation.navigate('signIn');
   }
   return (
     <View style={{flex: 1}}>
