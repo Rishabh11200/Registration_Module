@@ -16,6 +16,7 @@ import ButtonField from '../../../components/button/SubmitButton/';
 import LoadingModal from '../../../components/LoadingModal';
 import styles from './styles';
 import {set} from '../../../constants/dataBase/services';
+import {global} from '../../../constants/global';
 
 const signIn = ({navigation}) => {
   const [emailText, setemailText] = useState('');
@@ -24,6 +25,7 @@ const signIn = ({navigation}) => {
   const [message, setmessage] = useState('');
   const [EmailCheck, setEmailCheck] = useState(false);
   const [PassCheck, setPassCheck] = useState(false);
+
   const screen = screenDetails();
   useEffect(() => {
     if (passText !== '') {
@@ -34,6 +36,7 @@ const signIn = ({navigation}) => {
       }
     }
   }, [passText]);
+
   function onTypeEmail(text) {
     setemailText(text);
     if (isEmailCheck(emailText)) {
@@ -48,6 +51,10 @@ const signIn = ({navigation}) => {
   function onLoadingSubmit(state) {
     setonLoading(state);
   }
+  function onGlobalVarChange(state) {
+    console.log('error?');
+    global.isCheck = state;
+  }
   async function onSignIn() {
     if (emailText != '' && passText != '') {
       if (isEmailCheck(emailText)) {
@@ -55,15 +62,21 @@ const signIn = ({navigation}) => {
         if (isPassCheck(passText)) {
           setPassCheck(false);
           onLoadingSubmit(true);
-          await set('isSignedIn', true);
+          // onGlobalVarChange(true);
           let data = {email: emailText, pass: passText};
-          await set('authData', data);
+          await set('@authData', data);
+          await set('@isSignedIn', true);
           setTimeout(() => {
             onLoadingSubmit(false);
             Alert.alert(`Signed in`, 'Voila! continue to your home.', [
               {
                 text: 'OK',
-                onPress: () => navigation.navigate('all'),
+                onPress: () => {
+                  navigation.reset({
+                    index: 0,
+                    routes: [{name: 'all'}],
+                  });
+                },
               },
             ]);
           }, 3000);

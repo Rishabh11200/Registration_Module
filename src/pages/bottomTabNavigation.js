@@ -8,6 +8,7 @@ import Home from '../screens/otherScreens/Home';
 import Profile from '../screens/otherScreens/Profile';
 import Settings from '../screens/otherScreens/Settings';
 import Drawer from './drawer';
+import settingsStack from './SettingPageNavigation';
 
 const Tab = createMaterialBottomTabNavigator();
 const bottomTabNavigation = () => {
@@ -47,7 +48,7 @@ const bottomTabNavigation = () => {
       />
       <Tab.Screen
         name="Settings"
-        component={Settings}
+        component={settingsStack}
         options={{tabBarColor: Colors.xCyan}}
       />
     </Tab.Navigator>

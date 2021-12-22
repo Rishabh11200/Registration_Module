@@ -2,7 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {global} from '../constants/global';
 
 const Stack = createNativeStackNavigator();
 
@@ -13,18 +14,21 @@ import forgot2 from '../screens/authentication/forgot/forgot2';
 import bottomTabNavigation from './bottomTabNavigation';
 
 const NavigationOfAllScreens = () => {
-  // const [isSignedIn, setisSignedIn] = useState(false);
-  // useEffect(() => {
-  //   AsyncStorage.getItem('isSignedIn').then(value => {
-  //     if (value) {
-  //       setisSignedIn(value);
-  //     }
-  //   });
-  // }, []);
-  // console.log(isSignedIn);
+  const [check, setisCheck] = useState(false);
+
+  useEffect(() => {
+    // setisCheck(global.isCheck);
+    AsyncStorage.getItem('@isSignedIn').then(value => {
+      if (value) {
+        setisCheck(value);
+        console.log('db:', value);
+      }
+    });
+  }, []);
+  console.log(check);
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName={check ? 'all' : 'signIn'}>
         <Stack.Screen
           name="signIn"
           component={signIn}

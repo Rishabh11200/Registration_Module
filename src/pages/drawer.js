@@ -25,12 +25,11 @@ const drawer = createDrawerNavigator();
 export default function Drawer(props) {
   return (
     <drawer.Navigator
-      drawerContent={props => <CustomDrawer {...props} />}
+      drawerContent={props => <CustomDrawerContent {...props} />}
       screenOptions={{
-        headerShown: false,
         drawerActiveBackgroundColor: Colors.lGreen,
         drawerActiveTintColor: Colors.black,
-        drawerInactiveTintColor: Colors.black,
+        drawerInactiveTintColor: Colors.darkBlue,
         drawerLabelStyle: {
           fontSize: 18,
           marginLeft: -25,
@@ -41,6 +40,7 @@ export default function Drawer(props) {
         component={Home}
         options={{
           drawerIcon: ({color}) => <Icon name="home" color={color} size={24} />,
+          title: 'Home',
         }}
       />
       <drawer.Screen
@@ -72,24 +72,49 @@ export default function Drawer(props) {
   );
 }
 
-function CustomDrawer(props) {
+function CustomDrawerContent(props) {
   const navigation = useNavigation();
   function onLogout() {
-    navigation.navigate('signIn');
+    navigation.reset({
+      index: 0,
+      routes: [{name: 'signIn'}],
+    });
   }
   return (
     <View style={{flex: 1}}>
+      <View style={styles.container}>
+        <Text style={styles.heading}>Registration</Text>
+        <View
+          style={{
+            borderBottomColor: 'black',
+            borderBottomWidth: 1,
+            marginLeft: 5,
+            marginRight: 5,
+          }}
+        />
+      </View>
       <DrawerContentScrollView {...props}>
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <TouchableOpacity style={styles.logout} onPress={onLogout}>
-        <Icon name="exit" color={Colors.shadeBlue} size={25} />
+        <Icon name="ios-exit" color={Colors.black} size={25} />
         <Text style={styles.text}>Logout</Text>
       </TouchableOpacity>
     </View>
   );
 }
 const styles = StyleSheet.create({
+  container: {
+    flex: 0.1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  heading: {
+    fontSize: 20,
+    color: Colors.black,
+    padding: '3%',
+    fontWeight: '800',
+  },
   logout: {
     marginBottom: 40,
     marginTop: 15,
@@ -100,7 +125,7 @@ const styles = StyleSheet.create({
   text: {
     marginLeft: 10,
     fontSize: 20,
-    color: Colors.lightblue,
+    color: Colors.black,
     fontWeight: '600',
   },
 });
