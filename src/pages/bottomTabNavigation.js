@@ -42,14 +42,14 @@ const bottomTabNavigation = () => {
         options={{tabBarColor: Colors.cyan}}
       />
       <Tab.Screen
-        name="Profile"
-        component={Profile}
-        options={{tabBarColor: Colors.darkCyan}}
-      />
-      <Tab.Screen
         name="Settings"
         component={settingsStack}
         options={{tabBarColor: Colors.xCyan}}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{tabBarColor: Colors.darkCyan}}
       />
     </Tab.Navigator>
   );

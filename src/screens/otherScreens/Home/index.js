@@ -6,20 +6,36 @@ import {
   Text,
   View,
   Alert,
+  FlatList,
+  Image,
 } from 'react-native';
+
 import screenDetails from '../../../constants/screenDetails';
 import Colors from '../../../constants/color';
 import styles from './styles';
+import CarouselScreen from '../../../components/carousel';
+import {data} from '../../../constants/dummyData';
 
 const Home = () => {
   const screen = screenDetails();
   return (
     <SafeAreaView style={styles.container(screen)}>
-      <View style={styles.center}>
-        <Text style={styles.text}>
-          Hey, further things will be added soon... Home
-        </Text>
-      </View>
+      <FlatList
+        data={data}
+        numColumns={2}
+        keyExtractor={(item, index) => `key-${index}`}
+        ListHeaderComponent={() => <CarouselScreen />}
+        renderItem={({item}) => {
+          return (
+            <View style={styles.view}>
+              <Image style={styles.image} source={{uri: item.url}} />
+              <View style={styles.insideImage}>
+                <Text style={styles.text}>{item.title}</Text>
+              </View>
+            </View>
+          );
+        }}
+      />
     </SafeAreaView>
   );
 };

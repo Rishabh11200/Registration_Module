@@ -15,6 +15,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
+import {set} from '../constants/dataBase/services';
 
 import Home from '../screens/otherScreens/Home';
 import Cart from '../screens/otherScreens/Cart';
@@ -74,11 +75,12 @@ export default function Drawer(props) {
 
 function CustomDrawerContent(props) {
   const navigation = useNavigation();
-  function onLogout() {
+  async function onLogout() {
     navigation.reset({
       index: 0,
       routes: [{name: 'signIn'}],
     });
+    await set('@isSignedIn', false);
   }
   return (
     <View style={{flex: 1}}>
@@ -105,7 +107,6 @@ function CustomDrawerContent(props) {
 }
 const styles = StyleSheet.create({
   container: {
-    flex: 0.1,
     alignItems: 'center',
     justifyContent: 'center',
   },

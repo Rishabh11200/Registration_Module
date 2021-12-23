@@ -4,10 +4,10 @@ import {Dimensions, Platform} from 'react-native';
 export default function screenDetails() {
   const [screen, setScreen] = useState(Dimensions.get('screen'));
   useEffect(() => {
-    const subscription = answer => {
+    const onChangeValue = answer => {
       setScreen(answer.screen);
     };
-    const event = Dimensions.addEventListener('change', subscription);
+    const event = Dimensions.addEventListener('change', onChangeValue);
     return () => event.remove();
   }, []);
 

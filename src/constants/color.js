@@ -10,5 +10,6 @@ const Colors = {
   darkCyan: '#46958A',
   cyan: '#6FB5AB',
   xCyan: '#2A7D72',
+  grey: '#90A4AE',
 };
 export default Colors;
