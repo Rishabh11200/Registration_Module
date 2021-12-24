@@ -9,6 +9,9 @@ import {
 import {useNavigation} from '@react-navigation/native';
 import Colors from '../constants/color';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Feather from 'react-native-vector-icons/Feather';
+import Entypo from 'react-native-vector-icons/Entypo';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   createDrawerNavigator,
   DrawerContent,
@@ -49,7 +52,7 @@ export default function Drawer(props) {
         component={Product}
         options={{
           drawerIcon: ({color}) => (
-            <Icon name="ios-albums" color={color} size={24} />
+            <Entypo name="list" color={color} size={24} />
           ),
         }}
       />
@@ -57,7 +60,9 @@ export default function Drawer(props) {
         name="Cart"
         component={Cart}
         options={{
-          drawerIcon: ({color}) => <Icon name="cart" color={color} size={24} />,
+          drawerIcon: ({color}) => (
+            <Feather name="shopping-cart" color={color} size={24} />
+          ),
         }}
       />
       <drawer.Screen
@@ -65,7 +70,7 @@ export default function Drawer(props) {
         component={Order}
         options={{
           drawerIcon: ({color}) => (
-            <Icon name="reorder-four-sharp" color={color} size={24} />
+            <Entypo name="add-to-list" color={color} size={24} />
           ),
         }}
       />
@@ -80,7 +85,7 @@ function CustomDrawerContent(props) {
       index: 0,
       routes: [{name: 'signIn'}],
     });
-    await set('@isSignedIn', false);
+    await set('@isSignedIn', 'no');
   }
   return (
     <View style={{flex: 1}}>
@@ -99,7 +104,11 @@ function CustomDrawerContent(props) {
         <DrawerItemList {...props} />
       </DrawerContentScrollView>
       <TouchableOpacity style={styles.logout} onPress={onLogout}>
-        <Icon name="ios-exit" color={Colors.black} size={25} />
+        <MaterialCommunityIcons
+          name="exit-run"
+          color={Colors.black}
+          size={25}
+        />
         <Text style={styles.text}>Logout</Text>
       </TouchableOpacity>
     </View>

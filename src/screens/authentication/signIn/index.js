@@ -65,7 +65,7 @@ const signIn = ({navigation}) => {
           // onGlobalVarChange(true);
           let data = {email: emailText, pass: passText};
           await set('@authData', data);
-          await set('@isSignedIn', true);
+          await set('@isSignedIn', 'yes');
           setTimeout(() => {
             onLoadingSubmit(false);
             Alert.alert(`Signed in`, 'Voila! continue to your home.', [

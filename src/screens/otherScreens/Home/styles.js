@@ -4,9 +4,10 @@ import Colors from '../../../constants/color';
 const styles = StyleSheet.create({
   container: screen => ({
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     padding: screen.up ? screen.width * 0.05 : screen.width * 0.05,
     backgroundColor: Colors.white,
+    // alignItems: 'center',
     width: '100%',
   }),
   text: {
@@ -21,6 +22,7 @@ const styles = StyleSheet.create({
   },
   insideImage: {
     position: 'absolute',
+    marginLeft: 10,
   },
   image: {
     width: 150,

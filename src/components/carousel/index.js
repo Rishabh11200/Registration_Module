@@ -40,7 +40,7 @@ const CarouselScreen = () => {
         inactiveDotColor={Colors.grey}
         autoplay
         circleLoop
-        ImageComponentStyle={{borderRadius: 10, width: '97%'}}
+        ImageComponentStyle={{borderRadius: 10, width: '90%'}}
         imageLoadingColor={Colors.cyan}
         paginationBoxVerticalPadding={10}
         paginationBoxStyle={{

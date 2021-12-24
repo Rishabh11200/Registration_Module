@@ -4,20 +4,29 @@ import Colors from '../../../constants/color';
 const styles = StyleSheet.create({
   container: screen => ({
     flex: 1,
-    flexDirection: screen.up ? 'column' : 'row',
-    justifyContent: 'center',
     padding: screen.up ? screen.width * 0.05 : screen.width * 0.05,
     backgroundColor: Colors.white,
   }),
-  center: {
-    flex: 1,
-    justifyContent: 'center',
+  mainView: {
     alignItems: 'center',
+    justifyContent: 'flex-start',
+    marginLeft: 40,
+    flexDirection: 'column',
+    marginTop: 10,
+    marginRight: 40,
+    marginBottom: 10,
+  },
+
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 20,
   },
   text: {
-    fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 18,
     color: Colors.black,
+    fontWeight: '600',
+    marginTop: 10,
   },
 });
 export default styles;

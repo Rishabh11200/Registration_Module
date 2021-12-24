@@ -16,13 +16,14 @@ import styles from './styles';
 import CarouselScreen from '../../../components/carousel';
 import {data} from '../../../constants/dummyData';
 
-const Home = () => {
+const Home = () => {  
   const screen = screenDetails();
   return (
     <SafeAreaView style={styles.container(screen)}>
       <FlatList
         data={data}
-        numColumns={2}
+        key={screen.up ? 1 : 2}
+        numColumns={screen.up ? 2 : 3}
         keyExtractor={(item, index) => `key-${index}`}
         ListHeaderComponent={() => <CarouselScreen />}
         renderItem={({item}) => {

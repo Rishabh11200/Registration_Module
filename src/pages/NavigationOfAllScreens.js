@@ -14,12 +14,10 @@ import forgot2 from '../screens/authentication/forgot/forgot2';
 import bottomTabNavigation from './bottomTabNavigation';
 
 const NavigationOfAllScreens = props => {
-  console.log('props: ', props.isCheck);
   return (
     <NavigationContainer>
       <Stack.Navigator
-        //  initialRouteName={props.isCheck ? 'all' : 'signIn'}
-        initialRouteName="all">
+        initialRouteName={props.isCheck === '"no"' ? 'signIn' : 'all'}>
         <Stack.Screen
           name="signIn"
           component={signIn}
@@ -45,6 +43,7 @@ const NavigationOfAllScreens = props => {
           component={bottomTabNavigation}
           options={{headerShown: false}}
         />
+       
       </Stack.Navigator>
     </NavigationContainer>
   );
