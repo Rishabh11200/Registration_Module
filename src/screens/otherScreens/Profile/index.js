@@ -15,11 +15,9 @@ const Profile = () => {
   const screen = screenDetails();
   return (
     <SafeAreaView style={styles.container(screen)}>
-      <View style={styles.center}>
-        <Text style={styles.text}>
-          Hey, further things will be added soon... Profile
-        </Text>
-      </View>
+      <ScrollView>
+        <Text style={styles.headingText(screen)}>Profile</Text>
+      </ScrollView>
     </SafeAreaView>
   );
 };

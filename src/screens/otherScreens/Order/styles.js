@@ -4,19 +4,40 @@ import Colors from '../../../constants/color';
 const styles = StyleSheet.create({
   container: screen => ({
     flex: 1,
-    flexDirection: screen.up ? 'column' : 'row',
-    justifyContent: 'center',
     padding: screen.up ? screen.width * 0.05 : screen.width * 0.05,
     backgroundColor: Colors.white,
-  }),
-  center: {
-    flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+  }),
+  cardView: screen => ({
+    width: '90%',
+    height: screen.up ? screen.height * 0.28 : screen.height * 0.7,
+    backgroundColor: Colors.white,
+    margin: screen.width * 0.05,
+    padding: 10,
+    borderRadius: 10,
+    borderColor: Colors.black,
+    borderWidth: 2,
+  }),
+  image: screen => ({
+    width: screen.up ? screen.width * 0.4 : screen.height * 0.4 - 4,
+    height: screen.up ? screen.height * 0.16 : screen.height * 0.45,
+    borderRadius: 10,
+  }),
+  title: {
+    color: Colors.black,
+    fontSize: 18,
+    fontWeight: '700',
   },
+  price: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: '600',
+    marginTop: 5,
+  },
+
   text: {
-    fontWeight: 'bold',
-    fontSize: 20,
+    marginTop: 10,
+    fontSize: 18,
     color: Colors.black,
   },
 });

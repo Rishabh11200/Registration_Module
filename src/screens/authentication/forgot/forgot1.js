@@ -22,7 +22,6 @@ const forgot1 = ({navigation}) => {
   const [emailText, setemailText] = useState('');
   const [EmailCheck, setEmailCheck] = useState(false);
   const [isTrue, setisTrue] = useState(false);
-  const [otp, setotp] = useState('');
 
   function onTypeEmail(text) {
     setemailText(text);
@@ -72,15 +71,9 @@ const forgot1 = ({navigation}) => {
             <OTPInputView
               style={styles.otpView}
               pinCount={4}
-              code={otp}
-              onCodeChanged={otp => {
-                setotp(otp);
-              }}
-              autoFocusOnLoad
+              autoFocusOnLoad={false}
               codeInputFieldStyle={styles.underlineStyleBase}
               codeInputHighlightStyle={styles.underlineStyleHighLighted}
-              placeholderTextColor={Colors.black}
-              selectionColor={Colors.black}
               onCodeFilled={otp => {
                 navigation.navigate('forgot2');
                 setisTrue(false);

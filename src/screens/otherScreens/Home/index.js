@@ -16,11 +16,12 @@ import styles from './styles';
 import CarouselScreen from '../../../components/carousel';
 import {data} from '../../../constants/dummyData';
 
-const Home = () => {  
+const Home = () => {
   const screen = screenDetails();
   return (
     <SafeAreaView style={styles.container(screen)}>
       <FlatList
+        columnWrapperStyle={{justifyContent: 'space-between'}}
         data={data}
         key={screen.up ? 1 : 2}
         numColumns={screen.up ? 2 : 3}

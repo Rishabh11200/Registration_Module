@@ -9,15 +9,11 @@ const styles = StyleSheet.create({
     padding: screen.up ? screen.width * 0.05 : screen.width * 0.05,
     backgroundColor: Colors.white,
   }),
-  center: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontWeight: 'bold',
-    fontSize: 20,
+  headingText: screen => ({
+    fontSize: screen.up ? screen.fps + 5 : screen.fls + 5,
     color: Colors.black,
-  },
+    padding: '3%',
+    fontWeight: '800',
+  }),
 });
 export default styles;

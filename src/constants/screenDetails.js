@@ -14,7 +14,12 @@ export default function screenDetails() {
   let potrait = screen.height > screen.width;
   let fPotraitSize = (screen.width * 4.9) / 100;
   let fLandscapeSize = (screen.width * 3) / 100;
-  
+
+  let onePixel = screen.width * 0.00113 + screen.height * 0.00051;
+
+  if (screen.height < screen.width) {
+    onePixel = onePixel * 0.5;
+  }
   const screenDetails = {
     platform: Platform.OS,
     height: screen.height,

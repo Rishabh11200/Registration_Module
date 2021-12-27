@@ -15,18 +15,31 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginRight: 40,
     marginBottom: 10,
-  },
-
-  image: {
-    width: 100,
-    height: 100,
+    elevation: 10,
+    backgroundColor: Colors.white,
     borderRadius: 20,
+    height: 170,
+    width: 125,
+    shadowColor: Colors.xCyan,
+  },
+  image: {
+    width: 125,
+    height: 120,
+    borderRadius: 20,
+  },
+  insideView: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    marginRight: 30,
   },
   text: {
     fontSize: 18,
     color: Colors.black,
     fontWeight: '600',
-    marginTop: 10,
+  },
+  price: {
+    fontSize: 16,
+    color: Colors.black,
   },
 });
 export default styles;

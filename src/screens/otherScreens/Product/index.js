@@ -15,11 +15,17 @@ import styles from './styles';
 import {data} from '../../../constants/dummyData';
 
 const Product = () => {
+  const rupee = '\u20B9';
   const renderItem = ({item}) => (
     <View style={styles.mainView}>
       <Image style={styles.image} source={{uri: item.url}} />
-
-      <Text style={styles.text}>{item.title}</Text>
+      <View style={styles.insideView}>
+        <Text style={styles.text}>{item.title}</Text>
+        <Text style={styles.price}>
+          {rupee}
+          {item.price} /-
+        </Text>
+      </View>
     </View>
   );
 
@@ -27,6 +33,7 @@ const Product = () => {
   return (
     <SafeAreaView style={styles.container(screen)}>
       <FlatList
+        columnWrapperStyle={{justifyContent: 'space-between'}}
         data={data}
         renderItem={renderItem}
         key={screen.up ? 1 : 2}
