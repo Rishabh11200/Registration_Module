@@ -16,6 +16,8 @@ import styles from './styles';
 export default function ImageSelection(props) {
   const [ResourceUri, setResourceUri] = useState('');
   const [isModalVisible, setisModalVisible] = useState(false);
+  let propsImage = props.image;
+
   const fromGallery = () => {
     const options = {
       storageOptions: {
@@ -97,6 +99,11 @@ export default function ImageSelection(props) {
           style={styles.imageView}>
           {ResourceUri != '' ? (
             <Image source={{uri: ResourceUri}} style={styles.imageView} />
+          ) : propsImage ? (
+            <Image
+              source={require('../../../assets/carousel/scene1.jpg')}
+              style={styles.imageView}
+            />
           ) : (
             <Text style={styles.buttonText}>Profile pic</Text>
           )}
