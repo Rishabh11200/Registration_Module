@@ -15,5 +15,8 @@ const styles = StyleSheet.create({
     padding: '3%',
     fontWeight: '800',
   }),
+  centerView: screen => {
+    height
+  },
 });
 export default styles;

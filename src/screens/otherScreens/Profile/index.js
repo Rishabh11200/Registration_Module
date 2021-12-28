@@ -17,6 +17,8 @@ const Profile = () => {
     <SafeAreaView style={styles.container(screen)}>
       <ScrollView>
         <Text style={styles.headingText(screen)}>Profile</Text>
+        <View style={styles.centerView(screen}>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
