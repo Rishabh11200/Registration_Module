@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, StyleSheet, Text, View} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import NavigationOfAllScreens from './pages/NavigationOfAllScreens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
