@@ -23,22 +23,22 @@ const styles = StyleSheet.create({
     height: screen.up ? screen.height * 0.16 : screen.height * 0.45,
     borderRadius: 10,
   }),
-  title: {
+  title: screen => ({
     color: Colors.black,
-    fontSize: 18,
+    fontSize: screen.onePixel * 20,
     fontWeight: '700',
-  },
-  price: {
+  }),
+  price: screen => ({
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 18 * screen.onePixel,
     fontWeight: '600',
     marginTop: 5,
-  },
+  }),
 
-  text: {
+  text: screen => ({
     marginTop: 10,
-    fontSize: 18,
+    fontSize: 18 * screen.onePixel,
     color: Colors.black,
-  },
+  }),
 });
 export default styles;

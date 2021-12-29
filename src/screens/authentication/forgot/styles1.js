@@ -10,17 +10,17 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   }),
   headingText: screen => ({
-    fontSize: screen.up ? screen.fps + 5 : screen.fls + 5,
+    fontSize: screen.onePixel * 20,
     color: Colors.black,
     padding: '3%',
     fontWeight: '800',
   }),
-  error: {
-    fontSize: 15,
+  error: screen => ({
+    fontSize: screen.onePixel * 14,
     textAlign: 'justify',
     fontWeight: '700',
     color: Colors.red,
-  },
+  }),
   view: {
     flex: 1,
     justifyContent: 'center',

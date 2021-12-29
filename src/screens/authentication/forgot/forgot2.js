@@ -1,15 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-  Modal,
-} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View, Alert} from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
-import Colors from '../../../constants/color';
 import styles from './styles2';
 import PassInput from '../../../components/inputs/passInput/';
 import ButtonField from '../../../components/button/SubmitButton/';
@@ -82,10 +73,10 @@ const forgot2 = ({navigation}) => {
         <PassInput name="New password" value={passText} func={onTypePass} />
         {PassCheck === true ? (
           <View style={{flex: 1, marginHorizontal: 30}}>
-            <Text style={styles.error}>
+            <Text style={styles.error(screen)}>
               {'\u2B24 Please enter Password with proper format.'}
             </Text>
-            <Text style={styles.error}>
+            <Text style={styles.error(screen)}>
               {
                 '-Must contain 1 captial character, 1 digit and minimum 8 characters.'
               }

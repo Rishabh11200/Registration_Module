@@ -12,7 +12,7 @@ export default function SimpleTextInput(props) {
       <TextInput
         style={styles.insideTextInput}
         placeholder={props.name}
-        fontSize={Screen.up ? Screen.fps : Screen.fls}
+        fontSize={Screen.onePixel * 18}
         keyboardType={props.keyboard}
         onChangeText={text => props.func(text)}
         defaultValue={props.value}

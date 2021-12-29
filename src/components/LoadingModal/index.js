@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Modal,
-  ActivityIndicator,
-  TouchableOpacity,
-} from 'react-native';
+import {Text, View, Modal, ActivityIndicator} from 'react-native';
 import Colors from '../../constants/color';
+import screenDetails from '../../constants/screenDetails';
 import styles from './styles';
 
 export default function LoadingModal(props) {
+  const screen = screenDetails();
   return (
     <Modal animationType="slide" transparent={true} visible={props.isTrue}>
       <View style={styles.view}>
@@ -20,7 +15,7 @@ export default function LoadingModal(props) {
             color={Colors.shadeBlue}
             size="large"
           />
-          <Text style={styles.text}>Please wait...</Text>
+          <Text style={styles.text(screen)}>Please wait...</Text>
         </View>
       </View>
     </Modal>

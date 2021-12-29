@@ -28,7 +28,7 @@ export default styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: Screen => ({
-    fontSize: Screen.up ? Screen.fps : Screen.fls,
+    fontSize: Screen.onePixel * 18,
     fontWeight: '700',
     color: Colors.black,
   }),

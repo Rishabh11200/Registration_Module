@@ -1,12 +1,9 @@
 import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constants/color';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
-import Home from '../screens/otherScreens/Home';
 import Profile from '../screens/otherScreens/Profile';
-import Settings from '../screens/otherScreens/Settings';
 import Drawer from './drawer';
 import settingsStack from './SettingPageNavigation';
 

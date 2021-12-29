@@ -10,10 +10,12 @@ import {
   Modal,
   Image,
 } from 'react-native';
-import Colors from '../../../constants/color';
+import screenDetails from '../../../constants/screenDetails';
+
 import styles from './styles';
 
 export default function ImageSelection(props) {
+  const screen = screenDetails();
   const [ResourceUri, setResourceUri] = useState('');
   const [isModalVisible, setisModalVisible] = useState(false);
   let propsImage = props.image;
@@ -105,7 +107,7 @@ export default function ImageSelection(props) {
               style={styles.imageView}
             />
           ) : (
-            <Text style={styles.buttonText}>Profile pic</Text>
+            <Text style={styles.buttonText(screen)}>Profile pic</Text>
           )}
         </TouchableOpacity>
       </View>

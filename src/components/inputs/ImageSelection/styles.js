@@ -35,12 +35,7 @@ export default styles = StyleSheet.create({
     shadowOpacity: 0.4,
     shadowRadius: 5,
   },
-  text: {
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: '800',
-    color: Colors.black,
-  },
+
   button: {
     marginTop: 30,
     padding: 10,
@@ -55,9 +50,9 @@ export default styles = StyleSheet.create({
     color: Colors.black,
     textDecorationLine: 'underline',
   },
-  buttonText: {
+  buttonText: screen => ({
     textAlign: 'center',
-    fontSize: 20,
+    fontSize: 18 * screen.onePixel,
     color: Colors.black,
-  },
+  }),
 });

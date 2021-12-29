@@ -27,6 +27,7 @@ export default function screenDetails() {
     up: potrait,
     fps: fPotraitSize,
     fls: fLandscapeSize,
+    onePixel: onePixel,
   };
   return screenDetails;
 }

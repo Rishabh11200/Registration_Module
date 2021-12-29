@@ -8,16 +8,17 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
     width: '100%',
   }),
-  text: {
+  text: screen => ({
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: screen.onePixel * 22,
     color: Colors.white,
-  },
-  view: {
+  }),
+  view: screen => ({
     backgroundColor: Colors.white,
     margin: 20,
     borderRadius: 20,
-  },
+    width: screen.up ? (screen.width * 3.5) / 10 : (screen.width * 2) / 10,
+  }),
   insideImage: {
     position: 'absolute',
     marginLeft: 10,

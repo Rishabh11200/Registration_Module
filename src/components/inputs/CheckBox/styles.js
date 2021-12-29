@@ -9,10 +9,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  label: {
+  label: screen => ({
     color: Colors.black,
-    fontSize: 18,
+    fontSize: screen.onePixel * 18,
     textAlign: 'justify',
-  },
+  }),
 });
 export default styles;

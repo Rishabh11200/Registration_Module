@@ -1,20 +1,14 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  TouchableOpacity,
-  Text,
-  SafeAreaView,
-} from 'react-native';
+import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Colors from '../constants/color';
+import screenDetails from '../constants/screenDetails';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   createDrawerNavigator,
-  DrawerContent,
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
@@ -27,6 +21,7 @@ import Order from '../screens/otherScreens/Order';
 
 const drawer = createDrawerNavigator();
 export default function Drawer(props) {
+  const screen = screenDetails();
   return (
     <drawer.Navigator
       drawerContent={props => <CustomDrawerContent {...props} />}
@@ -35,7 +30,7 @@ export default function Drawer(props) {
         drawerActiveTintColor: Colors.black,
         drawerInactiveTintColor: Colors.darkBlue,
         drawerLabelStyle: {
-          fontSize: 18,
+          fontSize: 20,
           marginLeft: -25,
         },
       }}>
@@ -79,6 +74,7 @@ export default function Drawer(props) {
 }
 
 function CustomDrawerContent(props) {
+  const screen = screenDetails();
   const navigation = useNavigation();
   async function onLogout() {
     navigation.reset({

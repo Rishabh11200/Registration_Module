@@ -1,16 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-  FlatList,
-  Image,
-} from 'react-native';
+import React from 'react';
+import {SafeAreaView, Text, View, FlatList, Image} from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
-import Colors from '../../../constants/color';
 import styles from './styles';
 import {data} from '../../../constants/dummyData';
 
@@ -22,15 +12,15 @@ const Cart = () => {
       <View style={{flexDirection: 'row'}}>
         <Image style={styles.image(screen)} source={{uri: item.url}} />
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.price}>
+          <Text style={styles.title(screen)}>{item.title}</Text>
+          <Text style={styles.price(screen)}>
             {rupee}
             {item.price} /-
           </Text>
           <Text style={styles.title}>Quantity: {item.cart}</Text>
         </View>
       </View>
-      <Text style={styles.text}>{item.details}</Text>
+      <Text style={styles.text(screen)}>{item.details}</Text>
     </View>
   );
 

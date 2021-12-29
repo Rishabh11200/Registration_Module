@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   headingText: screen => ({
-    fontSize: screen.up ? screen.fps + 5 : screen.fls + 5,
+    fontSize: screen.onePixel * 20,
     color: Colors.black,
     padding: '3%',
     fontWeight: '800',

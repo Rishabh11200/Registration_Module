@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <SafeAreaView style={styles.container(screen)}>
       <FlatList
-        columnWrapperStyle={{justifyContent: 'space-between'}}
+        columnWrapperStyle={{justifyContent: 'space-evenly'}}
         data={data}
         key={screen.up ? 1 : 2}
         numColumns={screen.up ? 2 : 3}
@@ -29,10 +29,10 @@ const Home = () => {
         ListHeaderComponent={() => <CarouselScreen />}
         renderItem={({item}) => {
           return (
-            <View style={styles.view}>
+            <View style={styles.view(screen)}>
               <Image style={styles.image} source={{uri: item.url}} />
               <View style={styles.insideImage}>
-                <Text style={styles.text}>{item.title}</Text>
+                <Text style={styles.text(screen)}>{item.title}</Text>
               </View>
             </View>
           );

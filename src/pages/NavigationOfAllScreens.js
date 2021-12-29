@@ -1,9 +1,6 @@
 import React from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {global} from '../constants/global';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +40,6 @@ const NavigationOfAllScreens = props => {
           component={bottomTabNavigation}
           options={{headerShown: false}}
         />
-       
       </Stack.Navigator>
     </NavigationContainer>
   );

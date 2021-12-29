@@ -13,11 +13,15 @@ const Profile = () => {
   const screen = screenDetails();
   const [Name, setName] = useState('');
   const [Email, setEmail] = useState('');
+  const [Phone, setPhone] = useState('');
   onTypeName = text => {
     setName(text);
   };
   onTypeEmail = text => {
     setEmail(text);
+  };
+  onTypePhone = text => {
+    setPhone(text);
   };
 
   return (
@@ -74,8 +78,8 @@ const Profile = () => {
             />
             <TextInput
               style={styles.input}
-              onChangeText={onTypeEmail}
-              value={Email}
+              onChangeText={onTypePhone}
+              value={Phone}
               placeholder="+91 955 575 1234"
               placeholderTextColor={Colors.black}
             />

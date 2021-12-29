@@ -1,23 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-  Modal,
-} from 'react-native';
+import React, {useState} from 'react';
+import {SafeAreaView, ScrollView, Text, View, Alert, Modal} from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
-import Colors from '../../../constants/color';
 import styles from './styles1';
-import LoadingModal from '../../../components/LoadingModal';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
-import { isEmailCheck } from '../../../constants/validations';
+import {isEmailCheck} from '../../../constants/validations';
 import EmailInputText from '../../../components/inputs/emailInput/';
 import ButtonField from '../../../components/button/SubmitButton/';
 
-const forgot1 = ({ navigation }) => {
+const forgot1 = ({navigation}) => {
   const screen = screenDetails();
   const [emailText, setemailText] = useState('');
   const [EmailCheck, setEmailCheck] = useState(false);
@@ -55,11 +45,13 @@ const forgot1 = ({ navigation }) => {
           func={onTypeEmail}
         />
         {EmailCheck === true ? (
-          <View style={{ flex: 1, marginHorizontal: 30 }}>
-            <Text style={styles.error}>
+          <View style={{flex: 1, marginHorizontal: 30}}>
+            <Text style={styles.error(screen)}>
               {'\u2B24 Please enter email address in valid format.'}
             </Text>
-            <Text style={styles.error}>{'-Format: abc@mailprovider.com.'}</Text>
+            <Text style={styles.error(screen)}>
+              {'-Format: abc@mailprovider.com.'}
+            </Text>
           </View>
         ) : null}
         <ButtonField text="Next" icon="arrow-forward-circle" func={onNext} />

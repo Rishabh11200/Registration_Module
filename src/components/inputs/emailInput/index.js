@@ -15,7 +15,7 @@ export default function EmailInputText(props) {
       <TextInput
         style={styles.insideTextInput}
         placeholder={props.name}
-        fontSize={Screen.up ? Screen.fps : Screen.fls}
+        fontSize={18 * Screen.onePixel}
         keyboardType="email-address"
         onChangeText={text => props.func(text)}
         defaultValue={props.value}

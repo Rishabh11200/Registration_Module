@@ -9,17 +9,17 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.white,
   }),
   headingText: screen => ({
-    fontSize: screen.up ? screen.fps + 5 : screen.fls + 5,
+    fontSize: screen.onePixel * 20,
     color: Colors.black,
     padding: '3%',
     fontWeight: '800',
   }),
-  error: {
-    fontSize: 15,
+  error: screen => ({
+    fontSize: screen.onePixel * 14,
     textAlign: 'justify',
     fontWeight: '700',
     color: Colors.red,
-  },
+  }),
   separator: {
     borderBottomColor: Colors.black,
     borderBottomWidth: 1,
@@ -34,12 +34,12 @@ const styles = StyleSheet.create({
   },
   text1: screen => ({
     fontWeight: 'bold',
-    fontSize: screen.up ? screen.fps + 2 : screen.fls + 2,
+    fontSize: screen.onePixel * 18,
     color: Colors.black,
   }),
   text2: screen => ({
     fontWeight: 'bold',
-    fontSize: screen.up ? screen.fps + 2 : screen.fls + 2,
+    fontSize: screen.onePixel * 18,
     color: Colors.darkBlue,
   }),
 });
