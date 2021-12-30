@@ -22,20 +22,11 @@ const data = [
 ];
 
 const CarouselScreen = () => {
-  const screen = screenDetails();
-  const [height, setheight] = useState(screen.height);
-  const [width, setwidth] = useState(screen.width);
-  onLayout = e => {
-    setheight(screen.height);
-    setwidth(screen.width);
-  };
   return (
-    <View style={styles.container} onLayout={() => onLayout()}>
+    <View style={styles.container}>
       <SliderBox
         images={data}
         sliderBoxHeight={300}
-        // onCurrentImagePressed={index => console.warn(`image ${index} pressed`)}
-        // currentImageEmitter={index => console.warn(`image ${index} pressed`)}
         dotColor={Colors.shadeBlue}
         inactiveDotColor={Colors.grey}
         autoplay

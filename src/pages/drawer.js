@@ -2,7 +2,6 @@ import React from 'react';
 import {StyleSheet, View, TouchableOpacity, Text} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import Colors from '../constants/color';
-import screenDetails from '../constants/screenDetails';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -12,7 +11,7 @@ import {
   DrawerContentScrollView,
   DrawerItemList,
 } from '@react-navigation/drawer';
-import {set} from '../constants/dataBase/services';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Home from '../screens/otherScreens/Home';
 import Cart from '../screens/otherScreens/Cart';
@@ -20,10 +19,11 @@ import Product from '../screens/otherScreens/Product';
 import Order from '../screens/otherScreens/Order';
 
 const drawer = createDrawerNavigator();
-export default function Drawer(props) {
-  const screen = screenDetails();
+export default function Drawer() {
   return (
     <drawer.Navigator
+      initialRouteName="MainHome"
+      defaultStatus={'closed'}
       drawerContent={props => <CustomDrawerContent {...props} />}
       screenOptions={{
         drawerActiveBackgroundColor: Colors.lGreen,
@@ -74,14 +74,13 @@ export default function Drawer(props) {
 }
 
 function CustomDrawerContent(props) {
-  const screen = screenDetails();
   const navigation = useNavigation();
   async function onLogout() {
     navigation.reset({
       index: 0,
       routes: [{name: 'signIn'}],
     });
-    await set('@isSignedIn', 'no');
+    await AsyncStorage.removeItem('@isSignedIn');
   }
   return (
     <View style={{flex: 1}}>

@@ -1,17 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-  FlatList,
-  Image,
-} from 'react-native';
-
+import React from 'react';
+import {SafeAreaView, Text, View, FlatList, Image} from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
-import Colors from '../../../constants/color';
 import styles from './styles';
 import CarouselScreen from '../../../components/carousel';
 import {data} from '../../../constants/dummyData';

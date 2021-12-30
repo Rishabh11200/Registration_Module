@@ -14,7 +14,7 @@ const NavigationOfAllScreens = props => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={props.isCheck === '"no"' ? 'signIn' : 'all'}>
+        initialRouteName={props.isCheck === '"yes"' ? 'all' : 'signIn'}>
         <Stack.Screen
           name="signIn"
           component={signIn}

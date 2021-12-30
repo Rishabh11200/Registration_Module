@@ -1,16 +1,6 @@
-import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-  FlatList,
-  Image,
-} from 'react-native';
+import React from 'react';
+import {SafeAreaView, Text, View, FlatList, Image} from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
-import Colors from '../../../constants/color';
 import styles from './styles';
 import {data} from '../../../constants/dummyData';
 
@@ -18,30 +8,41 @@ const Order = () => {
   const screen = screenDetails();
   const rupee = '\u20B9';
   const renderItem = ({item}) => (
-    <View style={styles.cardView(screen)}>
-      <View style={{flexDirection: 'row'}}>
+    <View
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop: 10,
+        marginHorizontal: 10,
+      }}>
+      <View>
         <Image style={styles.image(screen)} source={{uri: item.url}} />
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={styles.title}>{item.title}</Text>
-          <Text style={styles.price}>
-            {rupee}
-            {item.price} /-
-          </Text>
-          <Text style={styles.title}>Quantity: {item.cart}</Text>
-        </View>
       </View>
-      <Text style={styles.text}>{item.details}</Text>
+      <View style={{marginLeft: 10}}>
+        <Text style={styles.title}> {item.title} </Text>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={{color: 'green'}}>{item.details}</Text>
+        </View>
+        <Text style={{color: 'red'}}>
+          {rupee} {item.price} /-
+        </Text>
+      </View>
     </View>
   );
 
   return (
     <SafeAreaView style={styles.container(screen)}>
       <FlatList
+        style={{flex: 1}}
         data={data}
         renderItem={renderItem}
         numColumns={1}
         keyExtractor={(item, index) => `key-${index}`}
       />
+      <View style={{justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={styles.text}>Total products: 10</Text>
+        <Text style={styles.text}>Total price: {rupee}1000/-</Text>
+      </View>
     </SafeAreaView>
   );
 };

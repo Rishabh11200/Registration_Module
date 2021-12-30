@@ -55,4 +55,10 @@ export default styles = StyleSheet.create({
     fontSize: 18 * screen.onePixel,
     color: Colors.black,
   }),
+  icon: {
+    backgroundColor: 'transparent',
+    position: 'absolute',
+    right: 20,
+    bottom: 0,
+  },
 });

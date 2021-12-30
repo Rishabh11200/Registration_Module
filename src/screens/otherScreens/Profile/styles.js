@@ -43,5 +43,11 @@ const styles = StyleSheet.create({
     marginTop: 15,
     paddingLeft: 15,
   },
+  text2: {
+    fontSize: 18,
+    color: Colors.black,
+    marginTop: 15,
+    paddingLeft: 15,
+  },
 });
 export default styles;

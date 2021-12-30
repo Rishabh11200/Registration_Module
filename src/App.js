@@ -11,7 +11,6 @@ const App = () => {
     AsyncStorage.getItem('@isSignedIn').then(value => {
       if (value) {
         setisCheck(value);
-        // console.log('db: ', value);
       }
       setdbCheck(true);
       SplashScreen.hide();
@@ -19,7 +18,6 @@ const App = () => {
   }
   useEffect(() => {
     dbCall();
-    // console.log('after: ', check);
   }, []);
 
   return dbCheck ? <NavigationOfAllScreens isCheck={String(check)} /> : null;

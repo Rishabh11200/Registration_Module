@@ -18,7 +18,7 @@ export default function screenDetails() {
   let onePixel = screen.width * 0.00113 + screen.height * 0.00051;
 
   if (screen.height < screen.width) {
-    onePixel = onePixel * 0.5;
+    onePixel = onePixel * 0.7;
   }
   const screenDetails = {
     platform: Platform.OS,

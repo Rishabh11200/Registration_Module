@@ -4,7 +4,6 @@ import Colors from '../../../constants/color';
 const styles = StyleSheet.create({
   container: screen => ({
     flex: 1,
-    padding: screen.up ? screen.width * 0.05 : screen.width * 0.05,
     backgroundColor: Colors.white,
     justifyContent: 'center',
   }),
@@ -17,10 +16,10 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: Colors.black,
     borderWidth: 2,
-  }),
+  }), 
   image: screen => ({
-    width: screen.up ? screen.width * 0.4 : screen.height * 0.4 - 4,
-    height: screen.up ? screen.height * 0.16 : screen.height * 0.45,
+    width: screen.up ? screen.width * 0.3 : screen.width * 0.1,
+    height: screen.up ? screen.height * 0.1 : screen.height * 0.2,
     borderRadius: 10,
   }),
   title: {

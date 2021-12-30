@@ -1,14 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  Alert,
-} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View, Alert} from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
-import Colors from '../../../constants/color';
 import {isEmailCheck, isPassCheck} from '../../../constants/validations';
 import EmailInputText from '../../../components/inputs/emailInput/';
 import PassInput from '../../../components/inputs/passInput/';
@@ -16,13 +8,11 @@ import ButtonField from '../../../components/button/SubmitButton/';
 import LoadingModal from '../../../components/LoadingModal';
 import styles from './styles';
 import {set} from '../../../constants/dataBase/services';
-import {global} from '../../../constants/global';
 
 const signIn = ({navigation}) => {
   const [emailText, setemailText] = useState('');
   const [passText, setpassText] = useState('');
   const [onLoading, setonLoading] = useState(false);
-  const [message, setmessage] = useState('');
   const [EmailCheck, setEmailCheck] = useState(false);
   const [PassCheck, setPassCheck] = useState(false);
 
@@ -51,10 +41,6 @@ const signIn = ({navigation}) => {
   function onLoadingSubmit(state) {
     setonLoading(state);
   }
-  function onGlobalVarChange(state) {
-    console.log('error?');
-    global.isCheck = state;
-  }
   async function onSignIn() {
     if (emailText != '' && passText != '') {
       if (isEmailCheck(emailText)) {
@@ -62,7 +48,6 @@ const signIn = ({navigation}) => {
         if (isPassCheck(passText)) {
           setPassCheck(false);
           onLoadingSubmit(true);
-          // onGlobalVarChange(true);
           let data = {email: emailText, pass: passText};
           await set('@authData', data);
           await set('@isSignedIn', 'yes');
