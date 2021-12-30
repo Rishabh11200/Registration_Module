@@ -63,7 +63,7 @@ const forgot1 = ({navigation}) => {
             <OTPInputView
               style={styles.otpView}
               pinCount={4}
-              autoFocusOnLoad={screen.platform === 'Android' ? false : true}
+              autoFocusOnLoad={screen.platform === 'android' ? false : true}
               codeInputFieldStyle={styles.underlineStyleBase}
               codeInputHighlightStyle={styles.underlineStyleHighLighted}
               onCodeFilled={otp => {
