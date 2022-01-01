@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {SafeAreaView, Text, View, FlatList, Image} from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
 import styles from './styles';
 import CarouselScreen from '../../../components/carousel';
+import SplashScreen from 'react-native-splash-screen';
 import {data} from '../../../constants/dummyData';
 
 const Home = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   const screen = screenDetails();
   return (
-    <SafeAreaView style={styles.container(screen)}>
+    <SafeAreaView style={styles.container}>
       <FlatList
         columnWrapperStyle={{justifyContent: 'space-evenly'}}
         data={data}

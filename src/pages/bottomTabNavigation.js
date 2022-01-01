@@ -4,6 +4,7 @@ import Colors from '../constants/color';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
 import Profile from '../screens/otherScreens/Profile';
+// import Home from '../screens/otherScreens/Home';
 import Drawer from './drawer';
 import settingsStack from './SettingPageNavigation';
 
@@ -12,7 +13,7 @@ const bottomTabNavigation = () => {
   return (
     <Tab.Navigator
       shifting={true}
-      initialRouteName="Home"
+      // initialRouteName="Home"
       tabBar={{
         flexDirection: 'row',
         height: 50,
@@ -22,7 +23,8 @@ const bottomTabNavigation = () => {
         borderTopRightRadius: 40,
       }}
       screenOptions={({route}) => ({
-        tabBarIcon: ({focused, color, size}) => {
+        headerShown: false,
+        tabBarIcon: ({focused, color}) => {
           let iconName;
           if (route.name === 'Home')
             iconName = focused ? 'ios-home' : 'ios-home-outline';
@@ -46,7 +48,7 @@ const bottomTabNavigation = () => {
       <Tab.Screen
         name="Profile"
         component={Profile}
-        options={{tabBarColor: Colors.darkCyan}}
+        options={{tabBarColor: Colors.darkCyan, headerShown: false}}
       />
     </Tab.Navigator>
   );

@@ -2,12 +2,11 @@ import {StyleSheet} from 'react-native';
 import Colors from '../../../constants/color';
 
 const styles = StyleSheet.create({
-  container: screen => ({
+  container: {
     flex: 1,
-    padding: screen.up ? screen.width * 0.05 : screen.width * 0.05,
     backgroundColor: Colors.white,
     width: '100%',
-  }),
+  },
   text: screen => ({
     fontWeight: 'bold',
     fontSize: screen.onePixel * 22,

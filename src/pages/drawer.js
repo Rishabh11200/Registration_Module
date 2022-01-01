@@ -18,12 +18,12 @@ import Cart from '../screens/otherScreens/Cart';
 import Product from '../screens/otherScreens/Product';
 import Order from '../screens/otherScreens/Order';
 
+// import bottomTabNavigation from './bottomTabNavigation';
+
 const drawer = createDrawerNavigator();
-export default function Drawer() {
+export default function Drawer(props) {
   return (
     <drawer.Navigator
-      initialRouteName="MainHome"
-      defaultStatus={'closed'}
       drawerContent={props => <CustomDrawerContent {...props} />}
       screenOptions={{
         drawerActiveBackgroundColor: Colors.lGreen,

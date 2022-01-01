@@ -9,6 +9,7 @@ import signUp from '../screens/authentication/signUp/';
 import forgot1 from '../screens/authentication/forgot/forgot1';
 import forgot2 from '../screens/authentication/forgot/forgot2';
 import bottomTabNavigation from './bottomTabNavigation';
+// import Drawer from './drawer';
 
 const NavigationOfAllScreens = props => {
   return (

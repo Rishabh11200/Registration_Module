@@ -1,6 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import {SafeAreaView, ScrollView, StyleSheet, Text, View} from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const settingStack = createNativeStackNavigator();
@@ -15,7 +13,7 @@ export default function settingsStack() {
       <settingStack.Screen
         name="AnotherSettings"
         component={Settings}
-        options={{headerLeft: null, title: 'Settings'}}
+        options={{headerShown: null, title: 'Settings'}}
       />
       <settingStack.Screen name="About" component={About} />
       <settingStack.Screen name="Privacy" component={Privacy} />

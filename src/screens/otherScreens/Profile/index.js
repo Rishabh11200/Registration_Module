@@ -39,7 +39,7 @@ const Profile = () => {
   onPressSave = () => {
     setisEdit(false);
   };
-  console.log(isEdit);
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
