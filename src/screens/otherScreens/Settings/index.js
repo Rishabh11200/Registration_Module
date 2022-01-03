@@ -1,18 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import React from 'react';
+import {SafeAreaView, Text, View, TouchableOpacity} from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import screenDetails from '../../../constants/screenDetails';
 import Colors from '../../../constants/color';
 import styles from './styles';
-import About from './about';
 
 const Settings = ({navigation}) => {
   const screen = screenDetails();
