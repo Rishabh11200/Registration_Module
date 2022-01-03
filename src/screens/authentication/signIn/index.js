@@ -64,7 +64,7 @@ const signIn = ({navigation}) => {
                 },
               },
             ]);
-          }, 3000);
+          }, 1500);
         } else {
           setPassCheck(true);
         }

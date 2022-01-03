@@ -14,14 +14,13 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Home from '../screens/otherScreens/Home';
+// import HomeStack from './HomePageStack';
 import Cart from '../screens/otherScreens/Cart';
 import Product from '../screens/otherScreens/Product';
 import Order from '../screens/otherScreens/Order';
 
-// import bottomTabNavigation from './bottomTabNavigation';
-
 const drawer = createDrawerNavigator();
-export default function Drawer(props) {
+export default function Drawer() {
   return (
     <drawer.Navigator
       drawerContent={props => <CustomDrawerContent {...props} />}

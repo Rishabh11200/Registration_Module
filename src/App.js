@@ -1,3 +1,4 @@
+import 'react-native-gesture-handler';
 import React, {useState, useEffect} from 'react';
 import SplashScreen from 'react-native-splash-screen';
 import NavigationOfAllScreens from './pages/NavigationOfAllScreens';

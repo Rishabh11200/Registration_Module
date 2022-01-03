@@ -10,17 +10,11 @@ const styles = StyleSheet.create({
   mainView: screen => ({
     alignItems: 'center',
     justifyContent: 'flex-start',
-    // marginLeft: 40,
     flexDirection: 'column',
-    // marginTop: 10,
-    // marginRight: 40,
-    // marginBottom: 10,
     margin: 10,
     elevation: 10,
     backgroundColor: Colors.white,
     borderRadius: 20,
-    // height: 170,
-    // width: screen.up ? (screen.width * 3.5) / 10 : (screen.width * 2) / 10,
     shadowColor: Colors.xCyan,
   }),
   image: {

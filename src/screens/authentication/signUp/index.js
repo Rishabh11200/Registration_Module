@@ -2,14 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
   View,
   KeyboardAvoidingView,
   Alert,
 } from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
-import Colors from '../../../constants/color';
 import {isEmailCheck, isPassCheck} from '../../../constants/validations';
 import ImageSelection from '../../../components/inputs/ImageSelection';
 import TextEntry from '../../../components/inputs/TextEntry';
@@ -95,10 +93,29 @@ const signUp = ({navigation}) => {
           onLoadingSubmit(true);
           setTimeout(() => {
             onLoadingSubmit(false);
-            Alert.alert(`${fName} registered`, 'Voila! continue to sign in.', [
-              {text: 'OK', onPress: () => navigation.navigate('signIn')},
+            // Alert.alert(`${fName} registered`, 'Voila! continue to sign in.', [
+            //   {text: 'OK', onPress: () => navigation.navigate('signIn')},
+            // ]);
+            Alert.alert(`Signed up`, 'Voila! continue to your profile.', [
+              {
+                text: 'OK',
+                onPress: () => {
+                  navigation.reset({
+                    index: 0,
+                    routes: [
+                      {
+                        name: 'all',
+                        state: {
+                          index: 0,
+                          routes: [{name: 'Profile'}],
+                        },
+                      },
+                    ],
+                  });
+                },
+              },
             ]);
-          }, 3000);
+          }, 1500);
         } else {
           setPassCheck(true);
         }
@@ -165,7 +182,7 @@ const signUp = ({navigation}) => {
           />
           {cPassCheck === true ? (
             <View style={{flex: 1, marginHorizontal: 30}}>
-              <Text style={styles.error}>
+              <Text style={styles.error(screen)}>
                 {'\u2B24 Password and Confirm Password are not matching.'}
               </Text>
             </View>
