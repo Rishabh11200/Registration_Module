@@ -6,24 +6,20 @@ const About = () => {
   const [onLoad, setonLoad] = useState(false);
   return (
     <SafeAreaView style={{flex: 1}}>
-      {onLoad ? (
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: 100,
-            flex: 1,
-          }}>
-          <ActivityIndicator size="large" />
-        </View>
-      ) : null}
       <WebView
-        source={{
-          uri: 'https://rishabh11200.github.io/portfolio/',
+        source={{uri: 'https://rishabh11200.github.io/portfolio/'}}
+        onLoadStart={() => {
+          setonLoad(true);
         }}
-        onLoadStart={() => setonLoad(true)}
-        onLoadEnd={() => setonLoad(false)}
+        onLoadEnd={() => {
+          setonLoad(false);
+        }}
       />
+      {onLoad && (
+        <View style={{flex: 1, backgroundColor: 'white'}}>
+          <ActivityIndicator color="#009688" size="large" />
+        </View>
+      )}
     </SafeAreaView>
   );
 };

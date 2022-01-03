@@ -21,7 +21,7 @@ import Order from '../screens/otherScreens/Order';
 // import bottomTabNavigation from './bottomTabNavigation';
 
 const drawer = createDrawerNavigator();
-export default function Drawer(props) {
+export default function Drawer() {
   return (
     <drawer.Navigator
       drawerContent={props => <CustomDrawerContent {...props} />}

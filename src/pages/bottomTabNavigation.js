@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Colors from '../constants/color';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
@@ -6,7 +6,9 @@ import {createMaterialBottomTabNavigator} from '@react-navigation/material-botto
 import Profile from '../screens/otherScreens/Profile';
 // import Home from '../screens/otherScreens/Home';
 import Drawer from './drawer';
+// import HomeStack from './HomePageStack';
 import settingsStack from './SettingPageNavigation';
+import HomeStack from './HomePageStack';
 
 const Tab = createMaterialBottomTabNavigator();
 const bottomTabNavigation = () => {
