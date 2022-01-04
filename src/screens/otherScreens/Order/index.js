@@ -34,7 +34,7 @@ const Order = () => {
   const footer = () => {
     return (
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
-        <Text>No more orders.</Text>
+        <Text style={{marginTop: 10}}>No more orders.</Text>
       </View>
     );
   };
