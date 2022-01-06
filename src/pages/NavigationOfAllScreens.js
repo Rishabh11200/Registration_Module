@@ -8,7 +8,7 @@ import signIn from '../screens/authentication/signIn/';
 import signUp from '../screens/authentication/signUp/';
 import forgot1 from '../screens/authentication/forgot/forgot1';
 import forgot2 from '../screens/authentication/forgot/forgot2';
-import bottomTabNavigation from './bottomTabNavigation';
+import all from './bottomTabNavigation';
 import SingleItem from '../screens/otherScreens/Home/singleItem';
 // import Drawer from './drawer';
 
@@ -39,7 +39,7 @@ const NavigationOfAllScreens = props => {
         />
         <Stack.Screen
           name="all"
-          component={bottomTabNavigation}
+          component={all}
           options={{headerShown: false}}
         />
         <Stack.Screen

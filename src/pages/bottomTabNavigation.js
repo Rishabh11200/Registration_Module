@@ -10,7 +10,7 @@ import Drawer from './drawer';
 import settingsStack from './SettingPageNavigation';
 import Profile from '../screens/otherScreens/Profile';
 
-const bottomTabNavigation = ({route}) => {
+const all = ({route}) => {
   // const {from} = route.params;
   return (
     <Tab.Navigator
@@ -125,4 +125,4 @@ function MyTabBar({state, descriptors, navigation}) {
     </View>
   );
 }
-export default bottomTabNavigation;
+export default all;

@@ -93,20 +93,21 @@ const signUp = ({navigation}) => {
           onLoadingSubmit(true);
           setTimeout(() => {
             onLoadingSubmit(false);
-            Alert.alert(`${fName} registered`, 'Voila! continue to sign in.', [
-              {text: 'OK', onPress: () => navigation.navigate('signIn')},
-            ]);
-            // Alert.alert(`Signed up`, 'Voila! continue to your profile.', [
-            //   {
-            //     text: 'OK',
-            //     onPress: () => {
-            //       navigation.reset({
-            //         index: 0,
-            //         routes: [{name: 'all', params: {from: 'signup'}}],
-            //       });
-            //     },
-            //   },
+            // Alert.alert(`${fName} registered`, 'Voila! continue to sign in.', [
+            //   {text: 'OK', onPress: () => navigation.navigate('signIn')},
             // ]);
+            Alert.alert(`Signed up`, 'Voila! continue to your profile.', [
+              {
+                text: 'OK',
+                onPress: () => {
+                  navigation.navigate('all', {screen: 'Profile'});
+                  // navigation.reset({
+                  //   index: 0,
+                  //   routes: [{name: 'all', screen: 'Profile'}],
+                  // });
+                },
+              },
+            ]);
           }, 3000);
         } else {
           setPassCheck(true);
@@ -174,7 +175,7 @@ const signUp = ({navigation}) => {
           />
           {cPassCheck === true ? (
             <View style={{flex: 1, marginHorizontal: 30}}>
-              <Text style={styles.error}>
+              <Text style={styles.error(screen)}>
                 {'\u2B24 Password and Confirm Password are not matching.'}
               </Text>
             </View>
