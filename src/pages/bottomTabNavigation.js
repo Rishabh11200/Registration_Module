@@ -10,9 +10,13 @@ import Drawer from './drawer';
 import settingsStack from './SettingPageNavigation';
 import Profile from '../screens/otherScreens/Profile';
 
-const bottomTabNavigation = () => {
+const bottomTabNavigation = ({route}) => {
+  // const {from} = route.params;
   return (
-    <Tab.Navigator tabBar={props => <MyTabBar {...props} />}>
+    <Tab.Navigator
+      tabBar={props => <MyTabBar {...props} />}
+      // initialRouteName={from === 'signup' ? 'Profile' : 'Home'}
+    >
       <Tab.Screen
         name="Home"
         component={Drawer}

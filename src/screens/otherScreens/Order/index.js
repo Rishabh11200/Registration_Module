@@ -42,13 +42,20 @@ const Order = () => {
     setdata(item);
     settap(true);
   }
-  console.log(data);
   return (
     <SafeAreaView style={styles.container(screen)}>
-      <Modal animationType="fade" visible={tap} transparent={true}>
+      <Modal
+        animationType="fade"
+        visible={tap}
+        transparent={true}
+        onRequestClose={() => {
+          settap(false);
+        }}>
         <View style={styles.view}>
           <View style={styles.modalView}>
-            <Text style={styles.title}>Order Details</Text>
+            <Text style={[styles.title, {textDecorationLine: 'underline'}]}>
+              Order Details
+            </Text>
             <View style={styles.rowView}>
               <Text style={styles.text}>Order id: {data.id}</Text>
               <Text style={[styles.text, {marginLeft: 20}]}>{data.title}</Text>

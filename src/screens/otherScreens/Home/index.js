@@ -1,16 +1,25 @@
-import React, {useEffect} from 'react';
-import {SafeAreaView, Text, View, FlatList, Image} from 'react-native';
+import React, {useCallback} from 'react';
+import {
+  SafeAreaView,
+  Text,
+  View,
+  FlatList,
+  Image,
+  Pressable,
+} from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
 import styles from './styles';
 import CarouselScreen from '../../../components/carousel';
-import SplashScreen from 'react-native-splash-screen';
 import {data} from '../../../constants/dummyData';
 
-const Home = () => {
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+const Home = ({navigation}) => {
   const screen = screenDetails();
+  const onPressSingleItem = useCallback(item => {
+    navigation.navigate('SingleItem', {
+      data: item,
+      name: item.title,
+    });
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -22,12 +31,17 @@ const Home = () => {
         ListHeaderComponent={() => <CarouselScreen />}
         renderItem={({item}) => {
           return (
-            <View style={styles.view(screen)}>
-              <Image style={styles.image} source={{uri: item.url}} />
-              <View style={styles.insideImage}>
-                <Text style={styles.text(screen)}>{item.title}</Text>
+            <Pressable
+              onPress={() => {
+                onPressSingleItem(item);
+              }}>
+              <View style={styles.view(screen)}>
+                <Image style={styles.image} source={{uri: item.url}} />
+                <View style={styles.insideImage}>
+                  <Text style={styles.text(screen)}>{item.title}</Text>
+                </View>
               </View>
-            </View>
+            </Pressable>
           );
         }}
       />

@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     color: Colors.black,
     textDecorationLine: 'underline',
+    fontSize: 16,
   },
   rowView: {
     flexDirection: 'row',

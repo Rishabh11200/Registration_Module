@@ -2,14 +2,12 @@ import React, {useState, useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
-  StyleSheet,
   Text,
   View,
   KeyboardAvoidingView,
   Alert,
 } from 'react-native';
 import screenDetails from '../../../constants/screenDetails';
-import Colors from '../../../constants/color';
 import {isEmailCheck, isPassCheck} from '../../../constants/validations';
 import ImageSelection from '../../../components/inputs/ImageSelection';
 import TextEntry from '../../../components/inputs/TextEntry';
@@ -98,6 +96,17 @@ const signUp = ({navigation}) => {
             Alert.alert(`${fName} registered`, 'Voila! continue to sign in.', [
               {text: 'OK', onPress: () => navigation.navigate('signIn')},
             ]);
+            // Alert.alert(`Signed up`, 'Voila! continue to your profile.', [
+            //   {
+            //     text: 'OK',
+            //     onPress: () => {
+            //       navigation.reset({
+            //         index: 0,
+            //         routes: [{name: 'all', params: {from: 'signup'}}],
+            //       });
+            //     },
+            //   },
+            // ]);
           }, 3000);
         } else {
           setPassCheck(true);
