@@ -100,15 +100,22 @@ const signUp = ({navigation}) => {
               {
                 text: 'OK',
                 onPress: () => {
-                  navigation.navigate('all', {screen: 'Profile'});
-                  // navigation.reset({
-                  //   index: 0,
-                  //   routes: [{name: 'all', screen: 'Profile'}],
-                  // });
+                  navigation.reset({
+                    index: 0,
+                    routes: [
+                      {
+                        name: 'all',
+                        state: {
+                          index: 0,
+                          routes: [{name: 'Profile'}],
+                        },
+                      },
+                    ],
+                  });
                 },
               },
             ]);
-          }, 3000);
+          }, 1500);
         } else {
           setPassCheck(true);
         }

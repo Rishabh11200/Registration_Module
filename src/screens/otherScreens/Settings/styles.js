@@ -26,5 +26,25 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     marginLeft: 10,
   },
+  insideTextInput: {
+    flex: 1,
+    color: Colors.black,
+  },
+  TextView: {
+    flexDirection: 'row',
+    elevation: 10,
+    padding: 10,
+    margin: 20,
+    borderRadius: 90,
+    backgroundColor: Colors.white,
+    shadowColor: Colors.shadeBlue,
+    shadowOpacity: 0.4,
+    shadowRadius: 5,
+  },
+  text: {
+    fontSize: 18,
+    color: Colors.black,
+    marginLeft: 10,
+  },
 });
 export default styles;
