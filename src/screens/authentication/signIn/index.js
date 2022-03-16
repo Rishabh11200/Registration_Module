@@ -9,7 +9,7 @@ import LoadingModal from '../../../components/LoadingModal';
 import styles from './styles';
 import {set} from '../../../constants/dataBase/services';
 
-const signIn = ({navigation}) => {
+const SignIn = ({navigation}) => {
   const [emailText, setemailText] = useState('');
   const [passText, setpassText] = useState('');
   const [onLoading, setonLoading] = useState(false);
@@ -130,4 +130,4 @@ const signIn = ({navigation}) => {
   );
 };
 
-export default signIn;
+export default SignIn;

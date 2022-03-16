@@ -18,7 +18,7 @@ import LoadingModal from '../../../components/LoadingModal';
 import ButtonField from '../../../components/button/SubmitButton/';
 import styles from './styles';
 
-const signUp = ({navigation}) => {
+const SignUp = ({navigation}) => {
   const screen = screenDetails();
   const [fName, setfName] = useState('');
   const [lName, setlName] = useState('');
@@ -212,4 +212,4 @@ const signUp = ({navigation}) => {
   );
 };
 
-export default signUp;
+export default SignUp;

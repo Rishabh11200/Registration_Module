@@ -7,10 +7,10 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 const Tab = createBottomTabNavigator();
 
 import Drawer from './drawer';
-import settingsStack from './SettingPageNavigation';
+import SettingsStack from './SettingPageNavigation';
 import Profile from '../screens/otherScreens/Profile';
 
-const all = ({route}) => {
+const All = ({route}) => {
   // const {from} = route.params;
   return (
     <Tab.Navigator
@@ -24,7 +24,7 @@ const all = ({route}) => {
       />
       <Tab.Screen
         name="Settings"
-        component={settingsStack}
+        component={SettingsStack}
         options={{headerShown: false}}
       />
       <Tab.Screen
@@ -125,4 +125,4 @@ function MyTabBar({state, descriptors, navigation}) {
     </View>
   );
 }
-export default all;
+export default All;

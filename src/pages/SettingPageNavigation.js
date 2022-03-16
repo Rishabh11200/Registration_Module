@@ -7,7 +7,7 @@ import Settings from '../screens/otherScreens/Settings';
 import About from '../screens/otherScreens/Settings/about';
 import Privacy from '../screens/otherScreens/Settings/privacy';
 
-export default function settingsStack() {
+export default function SettingsStack() {
   return (
     <settingStack.Navigator>
       <settingStack.Screen

@@ -7,7 +7,7 @@ import ButtonField from '../../../components/button/SubmitButton/';
 import LoadingModal from '../../../components/LoadingModal';
 import {isPassCheck} from '../../../constants/validations';
 
-const forgot2 = ({navigation}) => {
+const Forgot2 = ({navigation}) => {
   const screen = screenDetails();
   const [passText, setpassText] = useState('');
   const [PassCheck, setPassCheck] = useState(false);
@@ -100,4 +100,4 @@ const forgot2 = ({navigation}) => {
     </SafeAreaView>
   );
 };
-export default forgot2;
+export default Forgot2;

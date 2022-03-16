@@ -4,11 +4,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
-import signIn from '../screens/authentication/signIn/';
-import signUp from '../screens/authentication/signUp/';
-import forgot1 from '../screens/authentication/forgot/forgot1';
-import forgot2 from '../screens/authentication/forgot/forgot2';
-import all from './bottomTabNavigation';
+import SignIn from '../screens/authentication/signIn/';
+import SignUp from '../screens/authentication/signUp/';
+import Forgot1 from '../screens/authentication/forgot/forgot1';
+import Forgot2 from '../screens/authentication/forgot/forgot2';
+import All from './bottomTabNavigation';
 import SingleItem from '../screens/otherScreens/Home/singleItem';
 // import Drawer from './drawer';
 
@@ -19,27 +19,27 @@ const NavigationOfAllScreens = props => {
         initialRouteName={props.isCheck === '"yes"' ? 'all' : 'signIn'}>
         <Stack.Screen
           name="signIn"
-          component={signIn}
+          component={SignIn}
           options={{headerShown: false}}
         />
         <Stack.Screen
           name="signUp"
-          component={signUp}
+          component={SignUp}
           options={{headerShown: false}}
         />
         <Stack.Screen
           name="forgot1"
-          component={forgot1}
+          component={Forgot1}
           options={{headerShown: false}}
         />
         <Stack.Screen
           name="forgot2"
-          component={forgot2}
+          component={Forgot2}
           options={{headerShown: false}}
         />
         <Stack.Screen
           name="all"
-          component={all}
+          component={All}
           options={{headerShown: false}}
         />
         <Stack.Screen

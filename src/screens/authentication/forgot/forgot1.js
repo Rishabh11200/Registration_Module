@@ -7,7 +7,7 @@ import {isEmailCheck} from '../../../constants/validations';
 import EmailInputText from '../../../components/inputs/emailInput/';
 import ButtonField from '../../../components/button/SubmitButton/';
 
-const forgot1 = ({navigation}) => {
+const Forgot1 = ({navigation}) => {
   const screen = screenDetails();
   const [emailText, setemailText] = useState('');
   const [EmailCheck, setEmailCheck] = useState(false);
@@ -85,4 +85,4 @@ const forgot1 = ({navigation}) => {
   );
 };
 
-export default forgot1;
+export default Forgot1;
