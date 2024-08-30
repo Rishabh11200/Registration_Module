@@ -1,10 +1,11 @@
 name: Install dependencies and run project
+
 on:
   push:
     branches:
-      - master
       - main
-  workflow_dispatch:
+      - master
+    workflow_dispatch:
 jobs:
   # Install dependecies using yarn
   install-dependecies:
@@ -17,13 +18,11 @@ jobs:
         with:
           cache: yarn
       - name: Install packages-libraries
-        run: yarn ci
-      - name: pod installations
-        run: cd ios && pod install
+        run: yarn
+      # - name: pod installations
+      #   run: cd ios && pod install
   # Perform android build/bundle
   build-android:
     needs: install-dependecies
     uses: ./.github/workflows/build-android.yml
     secrets: inherit
-
-  # Perform ios archive generation and upload to test-flight
