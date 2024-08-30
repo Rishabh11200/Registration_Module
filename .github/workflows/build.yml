@@ -1,65 +1,29 @@
-name: react-native-android-build-apk
-
+name: Install dependencies and run project
 on:
-
   push:
-
     branches:
-
       - master
+      - main
   workflow_dispatch:
-
 jobs:
-
-  install-and-test:
-
+  # Install dependecies using yarn
+  install-dependecies:
     runs-on: ubuntu-latest
-
     steps:
-
-      - uses: actions/checkout@v2
-
-      - name: Install npm dependencies
-
-        run: |
-
-          npm install
-
-  build-android:
-
-    needs: install-and-test
-
-    runs-on: ubuntu-latest
-
-    steps: 
-
-      - uses: actions/checkout@v2
-
-      - name: Install npm dependencies
-
-        run: |
-
-          npm install
-
-      - name: Permission Granted
-
-        run: |
-
-          cd android && chmod +x ./gradlew
-
-      - name: Build Android Release
-
-        run: |
-
-          cd android && ./gradlew assembleRelease
-
-      - name: Upload Artifact
-
-        uses: actions/upload-artifact@v1
-
+      - name: Checkout
+        uses: actions/checkout@v4.1.7
+      - name: Set up Node.js environment
+        uses: actions/setup-node@v4.0.3
         with:
+          cache: yarn
+      - name: Install packages-libraries
+        run: yarn ci
+      - name: pod installations
+        run: cd ios && pod install
+  # Perform android build/bundle
+  build-android:
+    needs: install-dependecies
+    uses: ./.github/workflows/build-android.yml
+    secrets: inherit
 
-          name: app-release.apk
-
-          path: android/app/build/outputs/apk/release/
-
+  # Perform ios archive generation and upload to test-flight
