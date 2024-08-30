@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - master
+      - testing
     workflow_dispatch:
 jobs:
   # Install dependecies using yarn
